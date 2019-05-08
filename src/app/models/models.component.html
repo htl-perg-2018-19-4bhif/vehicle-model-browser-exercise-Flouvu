@@ -1,0 +1,44 @@
+<h2 class="allText">Model Searching</h2>
+
+<select [(ngModel)]="year">
+  <option></option>
+  <option *ngFor="let year of years">{{ year }}</option>
+</select>
+
+<select [(ngModel)]="make">
+  <option></option>
+  <option *ngFor="let make of makes">{{ make }}</option>
+</select>
+
+<button (click)="refreshList()">Refresh</button><br><br>
+
+<table align="center">
+  <thead>
+    <tr>
+      <th>Year</th>
+      <th>Make</th>
+      <th>Model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Filtered of ergebnis">
+      <td> {{ Filtered.year }}</td>
+      <td> {{ Filtered.make }}</td>
+      <td> {{ Filtered.model }}</td>   
+    </tr>
+  </tbody>
+</table><br>  
+
+<button [disabled]="offset==0" (click)="previousTen()">Previous</button>
+<button [disabled]="nextBut" (click)="nextTen()">Next</button><br>
+
+<p class="allText">Change number of elements showed: </p>
+
+<select [(ngModel)]="numElements">
+  <option>10</option>
+  <option>20</option>
+  <option>50</option>
+  <option>90</option>
+</select>
+
+<button (click)="refreshList()">Refresh</button>
